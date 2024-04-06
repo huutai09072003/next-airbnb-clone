@@ -49,7 +49,7 @@ export const authOptions: AuthOptions = {
                 }
 
 
-                return user;
+                return user; dasdasdasdasdacdcascsadcasd
             },
         })
     ]
