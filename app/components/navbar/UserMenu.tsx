@@ -7,8 +7,16 @@ import MenuItem from "./MenuItem";
 import RegisterModal from '../modals/RegisterModal';
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 
-const UserMenu = () => {
+interface UserMenuProps{
+    currentUser?: User | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({
+    currentUser
+}) => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [IsOpen, setIsOpen] = useState(false);
@@ -84,16 +92,37 @@ const UserMenu = () => {
                         flex-col
                         cursor-pointer 
                     ">
+                        {currentUser ? (
                         <>
+                            <MenuItem 
+                            onclick={()=>{}}
+                            label="My Trips"/>
+                            <MenuItem 
+                            onclick={()=>{}}
+                            label="My Favourites"/>
+                            <MenuItem 
+                            onclick={()=>{}}
+                            label="My Reservations"/>
+                            <MenuItem 
+                            onclick={()=>{}}
+                            label="My Properties"/>
+                            <MenuItem 
+                            onclick={()=>{}}
+                            label="Airbnb my home"/>
+                            <MenuItem 
+                            onclick={()=>signOut()}
+                            label="Log out"/>
+                        </>
+                        ) : (
+                            <>
                             <MenuItem 
                             onclick={loginModal.onOpen}
                             label="Login"/>
-                        </>
-                        <>
                             <MenuItem 
                             onclick={registerModal.onOpen}
                             label="Sigh up"/>
                         </>
+                        )}
                     </div>
                 </div>
             )}
