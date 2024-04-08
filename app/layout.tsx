@@ -27,7 +27,7 @@ export default function RootLayout({
         <ClientOnly>
           <ToasterProvider/>
           <LoginModal/> 
-          <RegisterModal/>
+          <RegisterModal />
           <Navbar/>
         </ClientOnly>
         {children}

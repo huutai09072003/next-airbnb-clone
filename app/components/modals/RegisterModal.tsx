@@ -12,10 +12,12 @@ import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../navbar/Button";
 import { FaGithub } from "react-icons/fa";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -120,7 +122,10 @@ const RegisterModal = () => {
                             Already have Account?
                         </div>
                         <div 
-                        onClick={registerModal.onClose}
+                        onClick={() => {
+                            registerModal.onClose?.();
+                            loginModal.onOpen?.();
+                        }}
                         className="
                             text-black
                             hover:underline

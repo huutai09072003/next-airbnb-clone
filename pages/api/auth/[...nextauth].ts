@@ -4,9 +4,6 @@ import prisma from "@/app/libs/prismadb"
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { Adapter } from 'next-auth/adapters';
-import { signIn } from 'next-auth/react';
-import { env } from 'process';
 import NextAuth from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
@@ -50,8 +47,6 @@ export const authOptions: AuthOptions = {
                 if (!isCorrectPassword) {
                     throw new Error('Invalid credentials');
                 }
-
-
                 return user;
             },
         })
