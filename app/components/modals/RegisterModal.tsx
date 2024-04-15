@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import Button from "../navbar/Button";
 import { FaGithub } from "react-icons/fa";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { signIn } from "next-auth/react";
 
 
 const RegisterModal = () => {
@@ -101,7 +102,7 @@ const RegisterModal = () => {
                 outline
                 label="Continue with Github"
                 icon={FaGithub}
-                onClick={()=>{}}>
+                onClick={()=>signIn('github')}>
                 </Button>
                 <div className="
                     text-neutral-400

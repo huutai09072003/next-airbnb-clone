@@ -10,7 +10,7 @@ const Avatar = () => {
             alt="avatar"
             src="/images/avatar.jpg"
         />
-      );
+    );
 }
- 
+
 export default Avatar;
