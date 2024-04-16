@@ -12,7 +12,8 @@ export const authOptions: AuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            allowDangerousEmailAccountLinking: true
         }),
         GithubProvider({
             clientId: process.env.GITHUB_ID as string,
@@ -58,6 +59,14 @@ export const authOptions: AuthOptions = {
         strategy: 'jwt'
     },
     secret: process.env.NEXTAUTH_SECRET,
+    callbacks: {
+        async signIn({ user, account, profile }) {
+            console.log("user: ", user);
+            console.log("account: ", account);
+            console.log(profile);
+            return true;
+        },
+    },
 }
 
 export default NextAuth(authOptions);
