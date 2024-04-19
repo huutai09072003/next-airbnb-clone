@@ -22,7 +22,7 @@ model User {
   hashedPassword String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  favoriteId String[] @db.ObjectId
+  favoriteIds String[] @db.ObjectId
 
   accounts Account[]
   listings Listing[]
@@ -37,8 +37,8 @@ model Account{
   providerAccountId String
   refresh_token String? @db.String
   access_token String? @db.String
+  expires_at Int?
   token_type String?
-  expire_at Int?
   scope String?
   id_token String? @db.String
   session_state String?
