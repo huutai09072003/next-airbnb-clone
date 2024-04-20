@@ -32,7 +32,7 @@ const Categories = () => {
     const pathName = usePathname();
     const isMainPage = pathName == "/";
 
-    if (isMainPage) {
+    if (!isMainPage) {
         return null;
     }
 
@@ -51,9 +51,8 @@ const Categories = () => {
                     <CategoryBox
                     key={item.label}
                     label={item.label}
-                    description={item.description}
+                    selected={category == item.label}
                     icon={item.icon}>
-
                     </CategoryBox>
                 ))}
             </div>
