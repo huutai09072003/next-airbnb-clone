@@ -1,4 +1,6 @@
 {
+    "http.proxy": "http://proxy-server:port",
+    "http.proxyStrictSSL": false,
     "CodeGPT.apiKey": "CodeGPT Plus Beta",
     "WillLuke.nextjs.hasPrompted": true
 }

@@ -14,7 +14,7 @@ import Button from "../navbar/Button";
 import { FaGithub } from "react-icons/fa";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { signIn } from "next-auth/react";
-
+import https from 'https'
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -38,7 +38,7 @@ const RegisterModal = () => {
         const onSubmit: SubmitHandler<FieldValues> = (data)=> {
             setIsLoading(true);
             
-            axios.post("/api/register", data)
+            axios.post("/api/register",data)
             .then(()=>{
                 registerModal.onClose();
             })
