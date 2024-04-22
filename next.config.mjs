@@ -9,7 +9,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'lh4.googleusercontent.com',
+                hostname: 'lh3.googleusercontent.com',
                 pathname: '/**', // This matches all paths on the domain
             },
         ],
