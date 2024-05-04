@@ -2,7 +2,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useCallback, useState } from 'react';
 import { IconType } from 'react-icons';
 import qs from 'query-string'
-import { categories } from './navbar/Categories';
 
 interface CategoryBoxProps {
     icon: IconType;
@@ -59,6 +58,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
             ${selected ? 'text-neutral-800' : 'text-neutral-500'}
         `}>
             <Icon size={26}></Icon>
+            <div 
+                className='font-medium 
+                            text-sm'>
+                                {label}
+            </div>
         </div>
     );
 }
