@@ -23,6 +23,10 @@ const LoginModal = () => {
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
+    const Toggle = useCallback(()=>{
+        loginModal.onClose();
+        registerModal.onOpen();
+    }, [loginModal, registerModal])
 
     const {
         register,
@@ -120,16 +124,16 @@ const LoginModal = () => {
                         pt-3
                     ">
                         <div>
-                            Already have Account?
+                            First time using Airbnb?
                         </div>
                         <div 
-                        onClick={registerModal.onClose}
+                        onClick={Toggle}
                         className="
                             text-black
                             hover:underline
                             cursor-pointer
                         ">
-                            Log in!
+                            Create An Account
                         </div>
                     </div>
                 </div>
