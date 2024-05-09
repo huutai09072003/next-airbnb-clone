@@ -8,7 +8,9 @@ import { categories } from '../navbar/Categories';
 import CategoryInput from "../inputs/CategoryInput";
 import { useForm, FieldValues } from 'react-hook-form';
 import CountrySelect from "../inputs/CountrySelect";
-import Map from "../Map";
+import dynamic from "next/dynamic";
+import Counter from "../inputs/Counter";
+
 
 enum STEPS{
     CATEGORY = 0,
@@ -74,7 +76,14 @@ const RentModal = () => {
 
     const category = watch('category')
     const location = watch('location')
-
+    const guestCount = watch('guestCount')
+    const roomCount = watch('roomCount')
+    const bathroomCount = watch('bathroomCount')
+    const Map = useMemo(()=>dynamic(()=>
+        import ("../Map"),{
+            ssr: false
+        }
+    ), [location])
 
     const setCustomsValue =(id: string, value: any) =>{
         setValue(id, value, {
@@ -124,7 +133,49 @@ const RentModal = () => {
                 <CountrySelect
                 value={location}
                 onChange={(value)=>{setCustomsValue('location', value)}}/>
-                <Map/>
+                <Map 
+                center={location?.latlng}/>
+            </div>
+        )
+    }
+
+    if (step== STEPS.INFO) {
+        bodyContent=(
+            <div className="flex flex-col gap-8">
+                <Heading
+                    title="Share some basics about your place"
+                    subtitle="Which amenities do you have?"
+                />
+                <Counter
+                title="Guests"
+                subtitle="How many guest do you allow?"
+                value={guestCount}
+                onChange={(value)=>setCustomsValue('guestCount', value)}
+                />
+                <hr/>
+                <Counter
+                title="Rooms"
+                subtitle="How many rooms do you have?"
+                value={roomCount}
+                onChange={(value)=>setCustomsValue('roomCount', value)}
+                />
+                <hr />
+                <Counter
+                title="Bathrooms"
+                subtitle="How many bathrooms do you have?"
+                value={bathroomCount}
+                onChange={(value)=>setCustomsValue('bathroomCount', value)}
+                />
+            </div>
+        )
+    }
+
+    if (step == STEPS.IMAGES) {
+        bodyContent=(
+            <div className="
+                flex flex-col gap-8
+            ">
+                Con cac
             </div>
         )
     }
