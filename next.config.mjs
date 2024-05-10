@@ -12,6 +12,11 @@ const nextConfig = {
                 hostname: 'lh3.googleusercontent.com',
                 pathname: '/**', // This matches all paths on the domain
             },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '/**', // This matches all paths on the domain
+            },
         ],
     },
 };

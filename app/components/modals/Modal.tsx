@@ -172,7 +172,7 @@ const Modal: React.FC<ModalProps> = ({
                             ">
                                 <div className="
                                     flex
-                                    flex-col
+                                    flex-row
                                     gap-4
                                     items-center
                                     w-full
