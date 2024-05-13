@@ -16,7 +16,7 @@ interface InputProps{
 }
 
 
-const input: React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = ({
     id,
     label,
     type='text',
@@ -87,4 +87,4 @@ const input: React.FC<InputProps> = ({
     );
 }
 
-export default input;
+export default Input;
