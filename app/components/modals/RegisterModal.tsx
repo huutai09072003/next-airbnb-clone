@@ -46,15 +46,13 @@ const RegisterModal = () => {
                 registerModal.onClose();
             })
             .catch((error)=>{
-                toast.error("Fuck");
+                toast.error("Error");
                 
             })
             .finally(()=>{
                 setIsLoading(false);
             })
         }
-
-
         const bodyContent = (
             <div className="
                 flex
