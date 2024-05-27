@@ -27,7 +27,7 @@ const useFavorite = ({
     const toggleFavorite = useCallback(async (
         e: React.MouseEvent<HTMLDivElement>
     )=>{
-        e.stopPropagation;
+        e.stopPropagation();
 
         if (!currentUser) {
             LoginModal.onOpen();
