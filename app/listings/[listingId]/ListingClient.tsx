@@ -2,6 +2,7 @@
 
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
+import ListingInfor from "@/app/components/listings/ListingInfor";
 import { categories } from "@/app/components/navbar/Categories";
 import { SafeListing, SafeUser } from "@/app/types";
 import { Reservation } from "@prisma/client";
@@ -34,6 +35,17 @@ const ListingClient:React.FC<ListingClientProps> = ({
                     currentUser={currentUser}
                     id={listing.id}
                     imgSrc={listing.imageSrc}
+                    />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
+                    <ListingInfor
+                        user={listing.user}
+                        category={listing.category}
+                        description={listing.description}
+                        roomCount={listing.roomCount}
+                        guestCount={listing.guestCount}
+                        bathroomCount={listing.bathroomCount}
+                        locationValue={listing.locationValue}
                     />
                 </div>
             </div>
