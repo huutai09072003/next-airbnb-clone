@@ -9,10 +9,10 @@ import ListingCategory from "./ListingCategory";
 interface ListingInforProps{
     user: SafeUser;
     category:{
-        label: string,
-        icon: IconType,
-        description: string
-    }
+        label: string;
+        icon: IconType;
+        description: string;
+    } | undefined   ;
     description: string
     roomCount: number
     guestCount: number
@@ -54,10 +54,10 @@ const ListingInfor:React.FC<ListingInforProps> = ({
             </div>
             <hr/>
             {category && (
-                <ListingCategory
-                icon={category.icon}
+                <ListingCategory 
                 label={category.label}
                 description={category.description}
+                icon={category.icon}
                 />
             )}
         </div>

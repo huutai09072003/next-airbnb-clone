@@ -13,7 +13,7 @@ interface ListingClientProps{
     listing: SafeListing & {
         user: SafeUser  
     };
-    currentUser: SafeUser | null
+    currentUser: SafeUser | undefined
 }
 
 const ListingClient:React.FC<ListingClientProps> = ({
@@ -21,9 +21,9 @@ const ListingClient:React.FC<ListingClientProps> = ({
     currentUser
 }) => {
     const category = useMemo(()=>{
-        return categories.find((item)=>{
+        return categories.find((item)=>
             item.label == listing.category
-        });
+        );
     }, [listing.category])
     return ( 
         <Container>
@@ -40,7 +40,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
                 <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
                     <ListingInfor
                         user={listing.user}
-                        category={listing.category}
+                        category={category}
                         description={listing.description}
                         roomCount={listing.roomCount}
                         guestCount={listing.guestCount}
